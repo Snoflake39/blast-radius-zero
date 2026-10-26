@@ -1,3 +1,6 @@
+<div align="center">
+  <img src="./Blast-Radus%20Zero.jpeg" alt="Blast-Radius Zero Security Runestone" width="420" />
+</div>
 # Blast-Radius Zero: Secure Cloud Database Architecture
 
 **Architect & Engineer:** Felicia (Fee) Lebeck (`Snoflake39`)  
