@@ -15,3 +15,16 @@ Modern cloud security cannot rely on perimeter defense alone. "Blast-Radius Zero
 
 ## Validation
 Run `terraform init` and `terraform validate` to verify syntax and module integrity.
+
+## Network & Security Topology
+
+```mermaid
+graph TD
+    IGW[Internet Gateway] -->|443 HTTPS| ALB[Public Subnet: Load Balancer]
+    subgraph VPC [Blast-Radius Zero VPC: 10.0.0.0/16]
+        ALB --> Compute[Private Subnet: Compute Tier SG]
+        Compute -->|Strict TCP 3306 Only| RDS[(Isolated Vault Subnet: MySQL RDS)]
+        KMS[AWS KMS Customer Managed Key] -.->|Encrypts at Rest| RDS
+        SM[AWS Secrets Manager] -.->|30-Day Auto Rotation| RDS
+    end
+~~~
