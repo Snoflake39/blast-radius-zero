@@ -27,4 +27,4 @@ graph TD
         KMS[AWS KMS Customer Managed Key] -.->|Encrypts at Rest| RDS
         SM[AWS Secrets Manager] -.->|30-Day Auto Rotation| RDS
     end
-~~~
+```
