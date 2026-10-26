@@ -8,7 +8,7 @@
 
 **Cloud Infrastructure Security | Database Architecture | Blue-Team Defense**
 
-I engineer resilient, security-first cloud environments and relational database architectures under the assumption of breach. Better systems make safer people—and security belongs in the declarative code that builds the infrastructure from day one.
+I'm Fee Lebeck (`Snoflake39`)—a Texan engineer, mother of five, and Cyber Security student at Southern New Hampshire University. I specialize in cloud infrastructure security, database architecture, and blue-team methods. I believe that security shouldn't be bolted on after deployment; it belongs in the declarative Terraform code that builds the environment from day one. Better systems make safer people.
 
 ### Core Stack & Tooling
 ![Terraform](https://img.shields.io/badge/Terraform-1.17-FF007F?style=for-the-badge&logo=terraform&logoColor=white)
