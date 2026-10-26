@@ -1,30 +1,20 @@
-# Blast-Radius Zero: Secure Cloud Database Architecture
+<div align="center">
+  <img src="./banner.jpg" alt="Curiosity is my Exploit. Security is my Mission." width="100%" />
+</div>
 
-**Architect & Engineer:** Felicia (Fee) Lebeck (`Snoflake39`)
-**Discipline:** Cloud Infrastructure Security & Database Architecture
-**Core Stack:** AWS (VPC, RDS, KMS, Secrets Manager), Terraform, Debian Linux
+# Hi, I'm Fee Lebeck (`Snoflake39`)
 
-## The Engineering Philosophy
-Modern cloud security cannot rely on perimeter defense alone. "Blast-Radius Zero" is an Infrastructure-as-Code (IaC) deployment engineered under the assumption of breach. By decoupling identity from static credentials, enforcing cryptographic secrecy at rest with a Customer Managed Key (CMK), and isolating the database within an internet-void subnet, the data tier remains unreachable even if an edge asset is compromised.
+> *"Curiosity is my exploit. Security is my mission. Think like a threat, defend like a pro."*
 
-## Modular Architecture
-* `versions.tf` — Enforces Terraform `>= 1.5.0` and locks the hashicorp/aws `~> 5.0` provider.
-* `vpc.tf` — Provisions a three-tier VPC (`10.0.0.0/16`) with Public, Private Compute, and Isolated Database subnets (`10.0.30.0/24`, `10.0.31.0/24`) with zero routes to the Internet Gateway or NAT Gateway.
-* `security.tf` — Implements Security Group chaining so TCP port `3306` only accepts traffic originating from the Compute Tier Security Group ID.
-* `database.tf` — Deploys an encrypted MySQL RDS instance backed by a rotating AWS KMS Customer Managed Key and automated 30-day credential rotation via AWS Secrets Manager.
+**Cloud Infrastructure Security | Database Architecture | Blue-Team Defense**
 
-## Validation
-Run `terraform init` and `terraform validate` to verify syntax and module integrity.
+I engineer resilient, security-first cloud environments and relational database architectures under the assumption of breach. Better systems make safer people—and security belongs in the declarative code that builds the infrastructure from day one.
 
-## Network & Security Topology
+### Core Stack & Tooling
+![Terraform](https://img.shields.io/badge/Terraform-1.17-FF007F?style=for-the-badge&logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS_Cloud_Security-00F0FF?style=for-the-badge&logo=amazonwebservices&logoColor=black)
+![Linux](https://img.shields.io/badge/Debian_Linux-A020F0?style=for-the-badge&logo=debian&logoColor=white)
+![MySQL](https://img.shields.io/badge/Database_Architecture-00F0FF?style=for-the-badge&logo=mysql&logoColor=black)
 
-```mermaid
-graph TD
-    IGW[Internet Gateway] -->|443 HTTPS| ALB[Public Subnet: Load Balancer]
-    subgraph VPC [Blast-Radius Zero VPC: 10.0.0.0/16]
-        ALB --> Compute[Private Subnet: Compute Tier SG]
-        Compute -->|Strict TCP 3306 Only| RDS[(Isolated Vault Subnet: MySQL RDS)]
-        KMS[AWS KMS Customer Managed Key] -.->|Encrypts at Rest| RDS
-        SM[AWS Secrets Manager] -.->|30-Day Auto Rotation| RDS
-    end
-```
+### Featured Architecture
+* **[Blast-Radius Zero](https://github.com/Snoflake39/blast-radius-zero)** — Modular Terraform IaC provisioning a 3-tier isolated AWS VPC, Security Group chaining, KMS Customer Managed Key encryption at rest, and 30-day automated secret rotation.
